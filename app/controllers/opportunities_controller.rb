@@ -1,4 +1,6 @@
 class OpportunitiesController < ApplicationController
+  before_action :authenticate_user!, :only => [:new, :create]
+
   def index
     @opportunities = Opportunity.all
   end
@@ -8,8 +10,7 @@ class OpportunitiesController < ApplicationController
   end
 
   def create
-    @opportunity = Opportunity.create(opportunity_params)
-
+    current_user.opportunities.create(opportunity_params)
     redirect_to root_path
   end
 

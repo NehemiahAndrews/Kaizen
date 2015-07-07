@@ -1,7 +1,10 @@
 class Opportunity < ActiveRecord::Base
+      belongs_to :user
+
       validates :opportunity, :presence => true, :length => {:maximum => 140, :minimum => 3}
       validates :exploit, :presence => true, :length => {:maximum => 140, :minimum => 3}
       validates :priority, :presence => true
+
 
       PRIORITIES = {
         'High' => 'High',
