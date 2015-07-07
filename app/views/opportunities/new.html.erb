@@ -1,0 +1,7 @@
+<h1>Identify an opportunity for improvement</h1>
+<%= simple_form_for @opportunity do |f| %>
+  <%= f.input :opportunity %>
+  <%= f.input :exploit %>
+  <%= f.input :priority, :as => :select, :collection => Opportunity::PRIORITIES %>
+  <%= f.submit "identify an opportunity", :class => 'btn btn-primary' %>
+<% end %>
