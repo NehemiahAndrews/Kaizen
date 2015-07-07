@@ -1,10 +1,17 @@
-<h1>Opportunities for Improvement</h1>
+<div class="hot-box col-xs-10 col-xs-offset-1">
+<% if user_signed_in? %>       
+  
+  <% current_user.opportunities.each do |opp| %>
+    
+      <h2>Opportunity: <%= opp.opportunity %></h1>
+      <%= opp.exploit %> </br></br>
+      <%= opp.priority %></br></br>
+  <% end %> 
+ <% else %>
+  <h2><%= link_to "Sign in", new_user_session_path %> or <%= link_to "Sign up", new_user_registration_path %> to improve yourself, continually!</h2> 
+<% end %>
+</div>
 
-<% @opportunities.each do |opp| %>
-  <div class="hot-box col-xs-10 col-xs-offset-1">
-    <h2>Opportunity: <%= opp.opportunity %></h1>
-    <%= opp.exploit %> </br></br>
-    <%= opp.priority %></br></br>
-  </div>
-<% end %> 
+
+
 
